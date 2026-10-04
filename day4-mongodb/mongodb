@@ -1,0 +1,211 @@
+
+
+1. What is MongoDB?
+
+MongoDB is a NoSQL, document-oriented database used to store application data.
+
+Unlike SQL databases, MongoDB stores data in the form of documents instead of rows and tables.
+
+Example:
+
+{
+  "name": "Gaurav",
+  "email": "gaurav@gmail.com",
+  "age": 21
+}
+
+MongoDB stores these documents inside collections.
+
+MongoDB Structure
+
+Database
+   ↓
+Collection
+   ↓
+Document
+   ↓
+Fields
+
+Example:
+
+myDatabase
+   ↓
+users
+   ↓
+{
+   name: "Gaurav",
+   email: "gaurav@gmail.com"
+}
+
+⸻
+
+2. What is Mongoose?
+
+Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js.
+
+It makes it easier for a Node.js/Express application to work with MongoDB.
+
+Mongoose provides features such as:
+
+* MongoDB connection
+* Schema creation
+* Models
+* Data validation
+* CRUD operations
+* Query handling
+
+Example:
+
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://127.0.0.1:27017/myDatabase");
+
+⸻
+
+3. What is a Schema?
+
+A Schema defines the structure of documents that we want to store.
+
+Example:
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    age: Number
+});
+
+Here:
+
+* name → String
+* email → String
+* age → Number
+
+Schema helps us maintain a consistent structure for our application data.
+
+⸻
+
+4. What is a Model?
+
+A Model is created from a Schema and is used to interact with MongoDB.
+
+Example:
+
+const User = mongoose.model("User", userSchema);
+
+Now we can use User to perform database operations.
+
+For example:
+
+User.find();
+User.create();
+User.findById();
+User.findByIdAndUpdate();
+User.findByIdAndDelete();
+
+⸻
+
+5. What is MongoDB Compass?
+
+MongoDB Compass is a GUI (Graphical User Interface) for MongoDB.
+
+Instead of using only the terminal, Compass allows us to visually:
+
+* Connect to MongoDB
+* Create databases
+* Create collections
+* View documents
+* Insert documents
+* Update documents
+* Delete documents
+* Explore database structure
+
+⸻
+
+6. Express + Mongoose + MongoDB
+
+In a backend application, the basic flow is:
+
+Frontend
+    ↓
+Express / Node.js
+    ↓
+Mongoose
+    ↓
+MongoDB
+
+Express
+
+Express handles:
+
+* HTTP requests
+* Routes
+* APIs
+* Responses
+* Middleware
+
+Mongoose
+
+Mongoose handles communication between the Node.js application and MongoDB and provides schemas/models.
+
+MongoDB
+
+MongoDB stores the actual application data.
+
+⸻
+
+7. MongoDB Compass Connection
+
+For a local MongoDB installation, a common connection string is:
+
+mongodb://127.0.0.1:27017/myDatabase
+
+Example:
+
+mongoose.connect("mongodb://127.0.0.1:27017/myDatabase");
+
+After connecting, the database can be viewed using MongoDB Compass.
+
+⸻
+
+8. Basic CRUD Operations
+
+CRUD stands for:
+
+* C — Create
+* R — Read
+* U — Update
+* D — Delete
+
+Examples using Mongoose:
+
+User.create(data);        // Create
+User.find();             // Read
+User.findByIdAndUpdate(); // Update
+User.findByIdAndDelete(); // Delete
+
+⸻
+
+9. Important Learning
+
+Today I learned:
+
+* What MongoDB is
+* Difference between SQL and NoSQL databases
+* What collections and documents are
+* What Mongoose is
+* What ODM means
+* How to create a Mongoose Schema
+* How to create a Mongoose Model
+* How Node.js/Express connects with MongoDB through Mongoose
+* What MongoDB Compass is
+* How to connect MongoDB with Compass
+* Basic CRUD operations in Mongoose
+
+Key Concept
+
+Express → handles the server and APIs
+
+Mongoose → provides a structured way for Node.js to work with MongoDB
+
+MongoDB → stores the data
+
+MongoDB Compass → provides a visual interface to work with MongoDB
